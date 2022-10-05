@@ -7,15 +7,15 @@ const Ads = (props) => {
       <header className="header">
         <a href="/#" className="logo">
           {" "}
-          <i className="fas fa-shopping-basket"></i> e-commerce{" "}
+          <i className="fas fa-shopping-basket"></i> SBG{" "}
         </a>
 
         <nav className="navbar">
           <a href="/#home">home</a>
-          <a href="/#categories">categories</a>
+          <a href="/#categories">Shops</a>
+          <a href="/#categories">Services</a>
           <a href="/#about">About</a>
           <a href="/#contact">Contact</a>
-          <a href="/#contact">Blog</a>
           <a href="/#blogs">Help</a>
         </nav>
 

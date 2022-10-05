@@ -31,35 +31,21 @@ const products = [
   },
 ];
 
-const ProductList = () => {
+const ProductList = (props) => {
   const products_list = products.map((product) => (
-    <div className="swiper product-slider">
-      <div className="swiper-wrapper">
-        <div className="swiper-slide box">
-          <img src={product.image} alt="" />
-          <h3>{product.name}</h3>
-          <div className="price"> {product.price} </div>
-          <div className="stars">
-            <i className="fas fa-star"></i>
-            <i className="fas fa-star"></i>
-            <i className="fas fa-star"></i>
-            <i className="fas fa-star"></i>
-            <i className="fas fa-star-half-alt"></i>
-          </div>
-          <a href="/#" className="btn">
-            add to cart
-          </a>
+    <div class="box">
+            <img src={product.image} alt=""/>
+            <h3>{product.name}</h3>
+            <p>{product.price}</p>
+            <a href="/#" class="btn">add to cart</a>
         </div>
-      </div>
-    </div>
   ));
   return (
-    <section className="products" id="products">
-      <h1 className="heading">
-        {" "}
-        our <span>Latest Products</span>{" "}
-      </h1>
-      {products_list}
+    <section class="categories" id="categories">
+      <h1 class="heading"> {props.category}<span>Products</span> </h1>
+     <div class="box-container">
+     {products_list}
+     </div>
     </section>
   );
 };
