@@ -11,12 +11,12 @@ const Ads = (props) => {
         </a>
 
         <nav className="navbar">
-          <a href="/#home">home</a>
-          <a href="/#categories">Shops</a>
-          <a href="/#categories">Services</a>
-          <a href="/#about">About</a>
-          <a href="/#contact">Contact</a>
-          <a href="/#blogs">Help</a>
+          <a href="/">home</a>
+          <a href="/#shops">Shops</a>
+          <a href="/#services">Services</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+          <a href="/#help">Help</a>
         </nav>
 
         <div className="icons">

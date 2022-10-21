@@ -1,0 +1,50 @@
+.about{
+    font-family: 'Poppins',sans-serif;
+}
+.about, .about-content{
+    display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: space-between;
+}
+.about .about-content .left{
+    width:45%
+}
+.about .about-content .left img{
+    margin-top: 25px;
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+}
+.about .about-content .right{
+    width:55%
+}
+.about .about-content .right .text{
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.about .about-content .right p{
+    text-align: justify;
+}
+.column p{
+    font-size: medium;
+}
+.about .about-content .shops a{
+    display: inline-block;
+    background: #FF7800;
+    color: #fff;
+    font-size: 20px;
+    padding: 10px 30px;
+    margin-top: 20px;
+    border-radius: 6px;
+    border:2px solid #FF7800;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    padding: 10px;
+    margin: 5px;
+}
+.about .about-content .right a:hover{
+    color: #FF7800;
+    background: none;
+}

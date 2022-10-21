@@ -35,7 +35,7 @@ const ProductList = (props) => {
   const products_list = products.map((product) => (
     <div class="box">
             <img src={product.image} alt=""/>
-            <h3>{product.name}</h3>
+            <h3><a href="/product">{product.name}</a></h3>
             <p>{product.price}</p>
             <a href="/#" class="btn">add to cart</a>
         </div>

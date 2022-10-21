@@ -1,12 +1,9 @@
-import Navigation from "./components/layout/Navigation";
 import Banner from "./components/layout/Banner";
 import Features from "./components/layout/Features";
 import ProductList from "./components/layout/ProductList";
 import images from "./assets/images.js";
-import Footer from "./components/layout/Footer";
 import Info from "./components/layout/Info";
 import { Partners } from "./components/layout/Partners";
-import Whatsapp from "./components/chat/Wastapp";
 import { Fragment } from "react";
 import "./assets/app.css";
 import "./assets/script.js";
@@ -16,16 +13,13 @@ import "slick-carousel/slick/slick-theme.css";
 function App() {
   return (
     <Fragment>
-      <Navigation />
       <Banner images={images} />
       <Info />
       <Features />
-      <ProductList category={'featured'} />
-      <ProductList category={'Latest'}/>
-      <Partners/>
-      <ProductList category={'Popular'}/>
-      <Footer />
-      <Whatsapp/>
+      <ProductList category={"featured"} />
+      <ProductList category={"Latest"} />
+      <Partners />
+      <ProductList category={"Popular"} />
     </Fragment>
   );
 }
