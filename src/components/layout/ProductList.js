@@ -1,52 +1,82 @@
-const products = [
-  {
-    id: 1,
-    price: '456$',
-    name: "test1",
-    image:"https://res.cloudinary.com/depljf8uc/image/upload/v1664962780/product3_uvvafg.png"
-  },
-  {
-    id: 2,
-    price: '45$',
-    name: "test2",
-    image:"https://res.cloudinary.com/depljf8uc/image/upload/v1664962780/product1_rz8yma.png"
-  },
-  {
-    id: 3,
-    price: '34$',
-    name: "test3",
-    image:"https://res.cloudinary.com/depljf8uc/image/upload/v1664962779/product2_vbvubs.jpg"
-  },
-  {
-    id: 4,
-    price: '600$',
-    name: "test4",
-    image:"https://res.cloudinary.com/depljf8uc/image/upload/v1664959771/cld-sample-5.jpg"
-  },
-  {
-    id: 5,
-    price: '4567$',
-    name: "test5",
-    image:"https://res.cloudinary.com/depljf8uc/image/upload/v1664959770/cld-sample-3.jpg"
-  },
-];
-
+import ProductHeader from "./ProductHeader";
+import { Fragment, useEffect, useState } from "react";
+import axios from "axios";
 const ProductList = (props) => {
-  const products_list = products.map((product) => (
-    <div class="box">
-            <img src={product.image} alt=""/>
-            <h3><a href="/product">{product.name}</a></h3>
-            <p>{product.price}</p>
-            <a href="/#" class="btn">add to cart</a>
-        </div>
-  ));
+  props.funcNav(true)
+  const [products, setProducts] = useState([]);
+  const [loading, setisLoading] = useState(true);
+  const [id, setID] = useState(null);
+  const [name, setName] = useState(null);
+  const [summary, setSummary] = useState(null);
+  const setProductData = (id) => {
+    localStorage.setItem("productId", id);
+  };
+  useEffect(() => {
+    setID(localStorage.getItem("id"));
+    setName(localStorage.getItem("name"));
+    setSummary(localStorage.getItem("summary"));
+    const getData = async () => {
+      try {
+        const response = await axios.get(
+          `https://sbg.onrender.com/api/v1/products/category/${id}`
+        );
+        setProducts(response.data.products);
+        setisLoading(false);
+      } catch (err) {
+        setProducts(null.message);
+      } finally {
+        setisLoading(false);
+      }
+    };
+    getData();
+  }, [id]);
+
   return (
-    <section class="categories" id="categories">
-      <h1 class="heading"> {props.category}<span>Products</span> </h1>
-     <div class="box-container">
-     {products_list}
-     </div>
-    </section>
+    <Fragment>
+      <ProductHeader setName={name} setSummary={summary} />
+      {loading && <p>Loading</p>}
+      {!loading && (
+        <div className="grid grid-cols-4 gap-1 justify-center md:justify-between hover:justify-between sm:gap-6">
+          {products.map((product) => (
+            <div className="max-w-l mx-auto" key={product.id}>
+              <div className="bg-white shadow-md rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
+                <a href="/#">
+                  <img
+                    className="rounded-t-lg p-8"
+                    src={product.images}
+                    alt="product_image"
+                  />
+                </a>
+                <div className="px-5 pb-5">
+                  <a
+                    href="/#"
+                    className="text-gray-900 font-semibold text-xl tracking-tight dark:text-white"
+                  >
+                    {product.product_name}
+                  </a>
+                  <div className="px-2.t py-0.5 rounded dark:bg-blue-200 dark:rext-blue-800 ml-3">
+                    <span>{product.discount}% discount</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-3xl font-bold text-gray-900 dark:text-white">
+                      {product.price} Rwf
+                    </span>
+                    <button onClick={() => setProductData(product.id)}>
+                      <a
+                        href="/product"
+                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                      >
+                        View Details
+                      </a>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </Fragment>
   );
 };
 

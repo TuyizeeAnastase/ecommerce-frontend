@@ -1,0 +1,5 @@
+.modal_style{
+    position: fixed;
+    z-index: 100;
+    opacity: 4;
+  }
