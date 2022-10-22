@@ -1,0 +1,10 @@
+.modal_style{
+    position: fixed;
+    top: 10%;
+    right: -10%;
+    z-index: 100;
+    width: 100vw;
+    height: 35vh;
+    background-color: white;
+    opacity: 4;
+  }

@@ -1,0 +1,39 @@
+.checkout{
+    margin: 10rem 16rem 0 16rem;
+    background-color: #ffffff;
+    padding: 10px;
+}
+.checkout-info h4{
+    font-size: 20px;
+}
+.checkout-content, .user-info{
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+.user-info{
+    margin-top: 8px;
+}
+.input-data label{
+    float: left;
+    margin-left: 13px;
+    font-size: 15px;
+}
+.input-data input{
+   background: #ffffff;
+   border: 1px solid black;
+   padding: 4px;
+   border-radius: 4px;
+}
+.confirm-btn{
+    background: #FF7800;
+    padding: 15px;
+    border-radius: 3px;
+    margin: 4px;
+    color: white;
+}
+.confirm-btn:hover{
+    background: #f3f3f3;
+    color: #FF7800;
+    border: 1px solid #FF7800;
+}
